@@ -1,9 +1,11 @@
 import subprocess
+from time import sleep
 
 def receive_verification_code(team_name, output_file):
     try:
         # Construct the curl command with your team's name
         url = f"http://192.168.123.132:5000/hello/{team_name}"
+        # url = f"0.0.0.0:8000"
         command = f"curl -s {url}"  # Use the -s flag to suppress curl's progress output
 
         # Execute the curl command and capture the output
@@ -28,3 +30,4 @@ output_file = "output.txt"  # Replace with the desired file path
 # Call the function to connect to the web service and receive the verification code
 while True :
     receive_verification_code(team_name, output_file)
+    sleep(1)
