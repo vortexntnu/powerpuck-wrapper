@@ -1,6 +1,7 @@
 import subprocess
 from time import sleep
 
+
 def receive_verification_code(team_name, output_file):
     try:
         # Construct the curl command with your team's name
@@ -12,7 +13,7 @@ def receive_verification_code(team_name, output_file):
         output = subprocess.check_output(command, shell=True).decode().strip()
 
         # Write the output to the file
-        with open(output_file, 'w') as file:
+        with open(output_file, "w") as file:
             file.write(output)
 
         print("Output saved to:", output_file)
@@ -22,12 +23,13 @@ def receive_verification_code(team_name, output_file):
     except Exception as e:
         print("Error:", str(e))
 
-team_name = "teamVORTEX" 
+
+team_name = "teamVORTEX"
 
 # Specify the file path to save the output
 output_file = "output.txt"  # Replace with the desired file path
 
 # Call the function to connect to the web service and receive the verification code
-while True :
+while True:
     receive_verification_code(team_name, output_file)
     sleep(1)
